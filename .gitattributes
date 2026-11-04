@@ -1,0 +1,22 @@
+# Normalización de saltos de línea
+* text=auto
+
+# Archivos de Unity en texto (YAML): fusión semántica con UnityYAMLMerge
+*.unity   merge=unityyamlmerge eol=lf
+*.prefab  merge=unityyamlmerge eol=lf
+*.asset   merge=unityyamlmerge eol=lf
+*.meta    merge=unityyamlmerge eol=lf
+*.mat     merge=unityyamlmerge eol=lf
+*.anim    merge=unityyamlmerge eol=lf
+*.controller merge=unityyamlmerge eol=lf
+
+# Archivos binarios (no se fusionan ni se normalizan)
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.psd   binary
+*.wav   binary
+*.mp3   binary
+*.ogg   binary
+*.ttf   binary
+*.otf   binary
