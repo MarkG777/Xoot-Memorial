@@ -418,6 +418,7 @@ public static partial class XootBuilder
         EaseOpenLevel();
         AddPlaceFacts();
         AddFog();
+        DecorateStation();
         ChangeQueretaroEnding();
         SaveScene(name);
     }
@@ -608,6 +609,7 @@ public static partial class XootBuilder
         }
 
         so.ApplyModifiedPropertiesWithoutUndo();
+        AddLetterPanel();
         SaveScene("Intro");
     }
 }

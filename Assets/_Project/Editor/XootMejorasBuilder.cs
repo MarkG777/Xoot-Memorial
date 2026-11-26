@@ -175,6 +175,113 @@ public static partial class XootBuilder
         return AssetDatabase.LoadAssetAtPath<Sprite>(FogTexture);
     }
 
+    // ---------------------------------------------------------------- carta y fotografía del inicio
+    private const string LetterPanel = "Assets/_Project/Art/Cinematica/escena_17.png";
+
+    [MenuItem("Xoot/31. Agregar la carta del inicio a la secuencia abierta")]
+    public static void AddLetterPanel()
+    {
+        var intro = Object.FindAnyObjectByType<IntroComic>();
+        var sprite = ImportLetterPanel();
+        if (intro == null || sprite == null) return;
+
+        var so = new SerializedObject(intro);
+        var panels = so.FindProperty("panels");
+        for (int i = 0; i < panels.arraySize; i++)
+        {
+            if (panels.GetArrayElementAtIndex(i).FindPropertyRelative("image").objectReferenceValue == sprite) return;
+        }
+
+        panels.arraySize++;
+        var panel = panels.GetArrayElementAtIndex(panels.arraySize - 1);
+        panel.FindPropertyRelative("image").objectReferenceValue = sprite;
+        // Más larga que las demás para que se alcance a leer la carta
+        panel.FindPropertyRelative("duration").floatValue = 8f;
+        panel.FindPropertyRelative("zoomStart").floatValue = 1f;
+        panel.FindPropertyRelative("zoomEnd").floatValue = 1.03f;
+        panel.FindPropertyRelative("sound").objectReferenceValue = null;
+        panel.FindPropertyRelative("soundVolume").floatValue = 1f;
+        so.ApplyModifiedPropertiesWithoutUndo();
+
+        EditorSceneManager.MarkSceneDirty(intro.gameObject.scene);
+    }
+
+    // Con los mismos ajustes de importación que las demás viñetas
+    private static Sprite ImportLetterPanel()
+    {
+        AssetDatabase.Refresh();
+        var importer = AssetImporter.GetAtPath(LetterPanel) as TextureImporter;
+        var model = AssetImporter.GetAtPath("Assets/_Project/Art/Cinematica/escena_16.png") as TextureImporter;
+        if (importer == null || model == null) return null;
+
+        var settings = new TextureImporterSettings();
+        model.ReadTextureSettings(settings);
+        importer.SetTextureSettings(settings);
+        importer.textureCompression = model.textureCompression;
+        importer.maxTextureSize = model.maxTextureSize;
+        importer.SaveAndReimport();
+
+        return AssetDatabase.LoadAssetAtPath<Sprite>(LetterPanel);
+    }
+
+    // ---------------------------------------------------------------- decorado de la estación de tren
+    [MenuItem("Xoot/32. Decorar la estación de tren del Nivel 1")]
+    public static void DecorateStation()
+    {
+        var progress = Object.FindAnyObjectByType<LevelProgress>();
+        if (progress == null || progress.Data == null || !progress.Data.name.Contains("Queretaro")) return;
+
+        foreach (string piece in new[] { "edificio", "reloj", "letrero", "banca", "vagon", "camion", "vias" })
+            ImportStationSprite("estacion_" + piece, piece == "vias");
+
+        if (GameObject.Find("Estacion") != null) return;
+
+        var station = new GameObject("Estacion");
+        var map = GameObject.Find("Mapa");
+        const float floor = 1f;
+
+        // Solo es decorado: sin colisiones, detrás del escenario y delante de los arcos
+        var rails = Prop(station.transform, "Vias", "estacion_vias", 23.3f, floor, -18);
+        rails.drawMode = SpriteDrawMode.Tiled;
+        rails.size = new Vector2(17.4f, rails.sprite.bounds.size.y);
+        Prop(station.transform, "Edificio", "estacion_edificio", 5.4f, floor, -22);
+        Prop(station.transform, "Banca", "estacion_banca", 9.9f, floor, -19);
+        Prop(station.transform, "Reloj detenido", "estacion_reloj", 11.3f, floor, -19);
+        Prop(station.transform, "Letrero del anden", "estacion_letrero", 15.9f, floor, -19);
+        Prop(station.transform, "Camion arrumbado", "estacion_camion", 19.8f, floor, -17);
+        Prop(station.transform, "Vagon abandonado", "estacion_vagon", 27.3f, floor + 0.18f, -16);
+
+        EditorSceneManager.MarkSceneDirty(map != null ? map.scene : station.scene);
+    }
+
+    private static SpriteRenderer Prop(Transform parent, string name, string sprite, float x, float y, int order)
+    {
+        // Un poco apagado para que no se confunda con lo que sí se puede pisar
+        return Decoration(parent, name, S(sprite), new Vector3(x, y, 0f), Vector3.one, order, new Color(0.84f, 0.84f, 0.9f, 1f));
+    }
+
+    private static void ImportStationSprite(string name, bool tiled)
+    {
+        string path = Pixel + name + ".png";
+        AssetDatabase.ImportAsset(path);
+        var importer = AssetImporter.GetAtPath(path) as TextureImporter;
+        var model = AssetImporter.GetAtPath(Pixel + "lantern_off.png") as TextureImporter;
+        if (importer == null || model == null) return;
+
+        // Mismos ajustes de pixel art que el farol: pivote abajo y sin suavizado
+        var settings = new TextureImporterSettings();
+        model.ReadTextureSettings(settings);
+        if (tiled)
+        {
+            settings.spriteMeshType = SpriteMeshType.FullRect;
+            settings.wrapMode = TextureWrapMode.Repeat;
+        }
+
+        importer.SetTextureSettings(settings);
+        importer.textureCompression = model.textureCompression;
+        importer.SaveAndReimport();
+    }
+
     // ---------------------------------------------------------------- final de Querétaro
     // Los murciélagos de la fase 3 hacían el nivel muy difícil: se apagan (no se borran)
     // y en su lugar queda una reja antes de la puerta.

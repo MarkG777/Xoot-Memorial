@@ -21,3 +21,5 @@ La leyenda de La Zacatecana se cuenta como tradición oral de Querétaro ("segú
 | Pixel art de la víbora de cascabel | Equipo Xoot Memorial | Script propio (Python + Pillow), asistido con Claude Code |
 | Pixel art de Puebla (talavera, cupulas, volcanes, teporingo, jefe, rocas y ceniza) y su musica y avisos | Equipo Xoot Memorial | Scripts propios (Python + Pillow y sintesis), asistidos con Claude Code |
 | Textura de la niebla del olvido (`Art/Efectos/niebla.png`) | Equipo Xoot Memorial | Script propio (Python + Pillow, `generar_niebla.py`), asistido con Claude Code |
+| Viñeta de la carta (`Art/Cinematica/escena_17.png`) | Equipo Xoot Memorial | Script propio (`generar_vineta_carta.py`) con el texto del guion técnico y el cuadro de los arcos de la escena 16; asistido con Claude Code |
+| Decorado de la estación de tren del Nivel 1 (`Art/Pixel/estacion_*`) | Equipo Xoot Memorial | Script propio (`generar_arte_estacion.py`), asistido con Claude Code |
