@@ -18,6 +18,7 @@ MonoBehaviour:
     con los alacranes. Cuando oigas el llanto, f\xEDjate de qu\xE9 lado viene."
   requiredKeys: 3
   legend: {fileID: 11400000, guid: fbc3af64e0c668c4aa5e91ea8a61f367, type: 2}
+  fogDensity: 0.72
   memoryFragmentText: "Un callej\xF3n lleno de risas... Tu amigo te ense\xF1a una
     foto, pero la niebla no te deja verla."
   memoryText: "En lo alto de un callej\xF3n, tu amigo te dice: \xABCuando no me veas,

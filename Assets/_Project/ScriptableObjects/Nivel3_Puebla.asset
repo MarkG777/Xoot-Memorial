@@ -18,6 +18,7 @@ MonoBehaviour:
     viven los teporingos: no los pises. Las rocas brillan en el suelo antes de caer."
   requiredKeys: 3
   legend: {fileID: 11400000, guid: 534985e9b1375044da4d00f09943d2ac, type: 2}
+  fogDensity: 0.8
   memoryFragmentText: "En una azotea, entre c\xFApulas de azulejo, alguien dibuja
     dos monta\xF1as..."
   memoryText: "Tu amigo te ense\xF1a su dibujo de los volcanes y dice: \xABSi un

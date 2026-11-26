@@ -417,6 +417,7 @@ public static partial class XootBuilder
         AddSnakes();
         EaseOpenLevel();
         AddPlaceFacts();
+        AddFog();
         ChangeQueretaroEnding();
         SaveScene(name);
     }

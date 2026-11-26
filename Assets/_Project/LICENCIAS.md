@@ -20,3 +20,4 @@ La leyenda de La Zacatecana se cuenta como tradición oral de Querétaro ("segú
 | `llorona_raspberrytickle2.wav` | **RaspberryTickle2** (tercero) | "La Llorona", https://freesound.org/people/RaspberryTickle2/sounds/444614/ — licencia **CC BY 3.0** (https://creativecommons.org/licenses/by/3.0/). Cambio: volumen normalizado. El crédito se muestra en el menú principal |
 | Pixel art de la víbora de cascabel | Equipo Xoot Memorial | Script propio (Python + Pillow), asistido con Claude Code |
 | Pixel art de Puebla (talavera, cupulas, volcanes, teporingo, jefe, rocas y ceniza) y su musica y avisos | Equipo Xoot Memorial | Scripts propios (Python + Pillow y sintesis), asistidos con Claude Code |
+| Textura de la niebla del olvido (`Art/Efectos/niebla.png`) | Equipo Xoot Memorial | Script propio (Python + Pillow, `generar_niebla.py`), asistido con Claude Code |

@@ -300,6 +300,7 @@ public static partial class XootBuilder
         ApplyTheme("pue_");
         AddPostProcessing();
         AddPlaceFacts();
+        AddFog();
         SaveScene(name);
     }
 

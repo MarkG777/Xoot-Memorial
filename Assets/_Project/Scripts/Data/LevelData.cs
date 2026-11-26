@@ -12,6 +12,9 @@ public class LevelData : ScriptableObject
     [Header("Leyenda del nivel (carta que se lee al empezar)")]
     [SerializeField] private LegendData legend;
 
+    [Header("Niebla del olvido: crece nivel tras nivel")]
+    [SerializeField, Range(0f, 1f)] private float fogDensity = 0.6f;
+
     [Header("Recuerdo")]
     [SerializeField, TextArea(2, 6)] private string memoryFragmentText = "";
     [SerializeField, TextArea(2, 6)] private string memoryText = "";
@@ -25,6 +28,7 @@ public class LevelData : ScriptableObject
     public string IntroText => introText;
     public LegendData Legend => legend;
     public int RequiredKeys => requiredKeys;
+    public float FogDensity => fogDensity;
     public string MemoryFragmentText => memoryFragmentText;
     public string MemoryText => memoryText;
     public string CompletedText => completedText;

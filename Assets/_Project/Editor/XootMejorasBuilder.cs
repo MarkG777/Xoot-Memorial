@@ -71,6 +71,110 @@ public static partial class XootBuilder
         EditorSceneManager.MarkSceneDirty(sky.gameObject.scene);
     }
 
+    // ---------------------------------------------------------------- niebla del olvido
+    private const string FogTexture = "Assets/_Project/Art/Efectos/niebla.png";
+
+    [MenuItem("Xoot/30. Poner la niebla del olvido en el nivel abierto")]
+    public static void AddFog()
+    {
+        var sprite = ImportFog();
+        var camera = GameObject.FindWithTag("MainCamera");
+        var progress = Object.FindAnyObjectByType<LevelProgress>();
+        if (sprite == null || camera == null || progress == null || progress.Data == null) return;
+
+        // Cada nivel con un poco más que el anterior
+        string level = progress.Data.name;
+        float density = level.Contains("Queretaro") ? 0.62f : level.Contains("Guanajuato") ? 0.72f : 0.8f;
+        Set(progress.Data, "fogDensity", density);
+        EditorUtility.SetDirty(progress.Data);
+        AssetDatabase.SaveAssets();
+
+        KeepPlayerInFront();
+        if (camera.transform.Find("Niebla") != null) return;
+
+        var fog = new GameObject("Niebla");
+        fog.transform.SetParent(camera.transform, false);
+        // Delante del escenario y los personajes (la cámara está en z = -10)
+        fog.transform.localPosition = new Vector3(0f, 0f, 10f);
+        var script = fog.AddComponent<ForgettingFog>();
+
+        var back = FogLayer(fog.transform, "Capa lenta", sprite, -0.2f, 11, false);
+        var front = FogLayer(fog.transform, "Capa de enfrente", sprite, -0.5f, 12, true);
+
+        var so = new SerializedObject(script);
+        so.FindProperty("progress").objectReferenceValue = progress;
+        var layers = so.FindProperty("layers");
+        layers.arraySize = 2;
+        SetFogLayer(layers.GetArrayElementAtIndex(0), back, 0.35f, 0.72f);
+        SetFogLayer(layers.GetArrayElementAtIndex(1), front, -0.6f, 0.5f);
+        so.ApplyModifiedPropertiesWithoutUndo();
+
+        EditorSceneManager.MarkSceneDirty(fog.scene);
+    }
+
+    // Aketzali se dibuja delante de la niebla para que no se pierda de vista
+    private static void KeepPlayerInFront()
+    {
+        var lives = Object.FindAnyObjectByType<PlayerLives>();
+        if (lives == null) return;
+
+        var renderer = lives.GetComponentInChildren<SpriteRenderer>();
+        var so = new SerializedObject(renderer);
+        so.FindProperty("m_SortingOrder").intValue = 13;
+        so.ApplyModifiedPropertiesWithoutUndo();
+        PrefabUtility.RecordPrefabInstancePropertyModifications(renderer);
+        EditorSceneManager.MarkSceneDirty(lives.gameObject.scene);
+    }
+
+    private static SpriteRenderer FogLayer(Transform parent, string name, Sprite sprite, float height, int order, bool flip)
+    {
+        var go = new GameObject(name);
+        go.transform.SetParent(parent, false);
+        go.transform.localPosition = new Vector3(0f, height, 0f);
+        var renderer = go.AddComponent<SpriteRenderer>();
+        renderer.sprite = sprite;
+        renderer.drawMode = SpriteDrawMode.Tiled;
+        // Tres repeticiones de ancho: sobra para cualquier ventana mientras se desliza
+        renderer.size = new Vector2(sprite.bounds.size.x * 3f, sprite.bounds.size.y);
+        renderer.flipX = flip;
+        renderer.sortingOrder = order;
+        renderer.color = new Color(1f, 1f, 1f, 0f);
+        return renderer;
+    }
+
+    private static void SetFogLayer(SerializedProperty item, SpriteRenderer renderer, float speed, float weight)
+    {
+        item.FindPropertyRelative("renderer").objectReferenceValue = renderer;
+        item.FindPropertyRelative("speed").floatValue = speed;
+        item.FindPropertyRelative("weight").floatValue = weight;
+    }
+
+    private static Sprite ImportFog()
+    {
+        AssetDatabase.Refresh();
+        var importer = AssetImporter.GetAtPath(FogTexture) as TextureImporter;
+        if (importer == null) return null;
+
+        var settings = new TextureImporterSettings();
+        importer.ReadTextureSettings(settings);
+        if (settings.textureType != TextureImporterType.Sprite || settings.spriteMeshType != SpriteMeshType.FullRect || settings.wrapMode != TextureWrapMode.Repeat)
+        {
+            settings.textureType = TextureImporterType.Sprite;
+            settings.spriteMode = (int)SpriteImportMode.Single;
+            settings.spritePixelsPerUnit = 512f / 24f;
+            settings.spriteMeshType = SpriteMeshType.FullRect;
+            settings.wrapMode = TextureWrapMode.Repeat;
+            settings.filterMode = FilterMode.Bilinear;
+            settings.mipmapEnabled = false;
+            settings.alphaIsTransparency = true;
+            importer.SetTextureSettings(settings);
+            importer.textureCompression = TextureImporterCompression.Uncompressed;
+            importer.SaveAndReimport();
+        }
+
+        return AssetDatabase.LoadAssetAtPath<Sprite>(FogTexture);
+    }
+
     // ---------------------------------------------------------------- final de Querétaro
     // Los murciélagos de la fase 3 hacían el nivel muy difícil: se apagan (no se borran)
     // y en su lugar queda una reja antes de la puerta.

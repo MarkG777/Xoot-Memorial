@@ -489,6 +489,7 @@ public static partial class XootBuilder
         AddLloronaCry();
         EaseOpenLevel();
         AddPlaceFacts();
+        AddFog();
         SaveScene(name);
     }
 
