@@ -189,6 +189,7 @@ public static partial class XootBuilder
         // Fondo: cielo fijo a la cámara y acueducto con profundidad
         var background = new GameObject("Fondo").transform;
         var sky = Decoration(cameraObject.transform, "Cielo", S("bg_sky"), Vector3.zero, new Vector3(1.3f, 1.3f, 1f), -100, tint);
+        sky.gameObject.AddComponent<SkyCover>();
         sky.transform.localPosition = new Vector3(0f, 0f, 20f);
         var arches = new GameObject("Acueducto");
         arches.transform.SetParent(background, false);
@@ -415,6 +416,8 @@ public static partial class XootBuilder
         AddPostProcessing();
         AddSnakes();
         EaseOpenLevel();
+        AddPlaceFacts();
+        ChangeQueretaroEnding();
         SaveScene(name);
     }
 
@@ -482,7 +485,7 @@ public static partial class XootBuilder
         var window = UiWindow(canvas.transform, "PanelControles", new Vector2(780f, 500f), out box);
         Heading(box, "Controles", 185f);
         var help = UiText(box, "Texto",
-            "A / D o flechas: moverte\nShift (mantener): correr\nEspacio: saltar (suéltalo pronto para un salto corto)\nE: abrir cofres y leer pistas\nEsc: pausa\n\nEncuentra las 3 llaves de cada nivel, calma a la leyenda y llega a la puerta. Tienes 3 corazones.",
+            "A / D o flechas: moverte\nShift (mantener): correr\nEspacio: saltar (suéltalo pronto para un salto corto)\nE: abrir cofres y leer pistas\nEsc: pausa · F11: pantalla completa\n\nEncuentra las 3 llaves de cada nivel, calma a la leyenda y llega a la puerta. Tienes 3 corazones.",
             27f, Cream, TextAlignmentOptions.Center);
         Place(help.gameObject, new Vector2(0.5f, 0.5f), new Vector2(0f, 5f), new Vector2(700f, 300f));
         var back = UiButton(box, "Volver", "Volver", new Vector2(0f, -195f), new Vector2(260f, 60f));

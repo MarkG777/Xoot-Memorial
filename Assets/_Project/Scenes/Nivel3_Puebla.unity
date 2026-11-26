@@ -633,6 +633,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1353701499}
     - target: {fileID: 7332132787634555172, guid: 79ba85ca8258ef24b981d72ca7a26545, type: 3}
+      propertyPath: fact
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332132787634555172, guid: 79ba85ca8258ef24b981d72ca7a26545, type: 3}
       propertyPath: puzzle
       value: 
       objectReference: {fileID: 11400000, guid: ff4d44108c948bd43a37cfeb362951d5, type: 2}
@@ -3384,6 +3388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 462823855}
   - component: {fileID: 462823856}
+  - component: {fileID: 462823857}
   m_Layer: 0
   m_Name: Cielo
   m_TagString: Untagged
@@ -3466,6 +3471,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &462823857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462823854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99b30236c539c74c8721161456f39b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkyCover
+  targetCamera: {fileID: 0}
+  extraMargin: 1.02
 --- !u!1 &464627919
 GameObject:
   m_ObjectHideFlags: 0
@@ -8816,6 +8835,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1353701499}
     - target: {fileID: 7332132787634555172, guid: 79ba85ca8258ef24b981d72ca7a26545, type: 3}
+      propertyPath: fact
+      value: 
+      objectReference: {fileID: 11400000, guid: 030263530d00e4545974dae9190bb0b2, type: 2}
+    - target: {fileID: 7332132787634555172, guid: 79ba85ca8258ef24b981d72ca7a26545, type: 3}
       propertyPath: puzzle
       value: 
       objectReference: {fileID: 11400000, guid: c52e57f574abe564da9b87160232cf5b, type: 2}
@@ -11554,6 +11577,10 @@ PrefabInstance:
       propertyPath: hud
       value: 
       objectReference: {fileID: 1353701499}
+    - target: {fileID: 7332132787634555172, guid: 79ba85ca8258ef24b981d72ca7a26545, type: 3}
+      propertyPath: fact
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7332132787634555172, guid: 79ba85ca8258ef24b981d72ca7a26545, type: 3}
       propertyPath: puzzle
       value: 

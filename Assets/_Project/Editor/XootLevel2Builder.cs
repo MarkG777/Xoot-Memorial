@@ -488,6 +488,7 @@ public static partial class XootBuilder
         AddPostProcessing();
         AddLloronaCry();
         EaseOpenLevel();
+        AddPlaceFacts();
         SaveScene(name);
     }
 

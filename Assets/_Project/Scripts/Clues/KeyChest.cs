@@ -9,6 +9,9 @@ public class KeyChest : MonoBehaviour, IInteractable
     [SerializeField] private string clueTitle = "Pista";
     [SerializeField, TextArea(2, 6)] private string clueText = "";
 
+    [Header("Dato histórico (opcional): sale después de la pista")]
+    [SerializeField] private PlaceFactData fact;
+
     [Header("Puzzle (vacío = el cofre se abre directo)")]
     [SerializeField] private PuzzleData puzzle;
     [SerializeField] private PuzzlePanelUI puzzlePanel;
@@ -34,6 +37,7 @@ public class KeyChest : MonoBehaviour, IInteractable
         if (IsOpen)
         {
             hud.ShowMessage(clueTitle, clueText);
+            ShowFact();
             return;
         }
 
@@ -64,11 +68,17 @@ public class KeyChest : MonoBehaviour, IInteractable
         // El texto de la pista se muestra primero; el recuerdo (si toca) queda en fila después
         string found = "¡Encontraste una llave! (" + (progress.Keys + 1) + " de " + progress.RequiredKeys + ")\n\n" + clueText;
         hud.ShowMessage(clueTitle, found);
+        ShowFact();
 
         scoreManager.AddScore(scoreManager.Rules.KeyPoints);
         progress.AddKey();
 
         if (keyPopup != null) StartCoroutine(KeyPopupRoutine());
+    }
+
+    private void ShowFact()
+    {
+        if (fact != null) hud.ShowMessage(fact.Title, fact.Text);
     }
 
     private IEnumerator KeyPopupRoutine()

@@ -1537,9 +1537,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "A / D o flechas: moverte\nShift (mantener): correr\nEspacio: saltar (su\xE9ltalo
-    pronto para un salto corto)\nE: abrir cofres y leer pistas\nEsc: pausa\n\nEncuentra
-    las 3 llaves de cada nivel, calma a la leyenda y llega a la puerta. Tienes 3
-    corazones."
+    pronto para un salto corto)\nE: abrir cofres y leer pistas\nEsc: pausa \xB7 F11:
+    pantalla completa\n\nEncuentra las 3 llaves de cada nivel, calma a la leyenda
+    y llega a la puerta. Tienes 3 corazones."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

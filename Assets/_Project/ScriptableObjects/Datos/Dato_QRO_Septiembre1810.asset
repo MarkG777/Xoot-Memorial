@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 009af4bcfbea54c48bdc9c4b814a45a2, type: 3}
+  m_Name: Dato_QRO_Septiembre1810
+  m_EditorClassIdentifier: Assembly-CSharp::PlaceFactData
+  place: "Quer\xE9taro"
+  date: septiembre de 1810
+  text: "La conspiraci\xF3n por la Independencia que se reun\xEDa en Quer\xE9taro
+    fue descubierta. Josefa Ortiz de Dom\xEDnguez, la Corregidora, logr\xF3 avisar
+    a los insurgentes."
+  source: "https://en.wikipedia.org/wiki/Josefa_Ortiz_de_Dom%C3%ADnguez ; CNDH, cronolog\xEDa
+    de la conspiraci\xF3n"
