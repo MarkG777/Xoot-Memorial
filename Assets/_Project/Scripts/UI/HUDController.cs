@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class HUDController : MonoBehaviour, IMessageView
         public string title;
         public string body;
         public Sprite image;
+        public bool flash;
     }
 
     [Header("Fuentes de los datos")]
@@ -37,6 +39,11 @@ public class HUDController : MonoBehaviour, IMessageView
     [SerializeField] private TMP_Text messageTitle;
     [SerializeField] private TMP_Text messageBody;
     [SerializeField] private Image messageImage;
+
+    [Header("RQF-05: fundido a blanco al mostrar un recuerdo")]
+    [SerializeField, Min(0.1f)] private float flashSeconds = 1.2f;
+
+    private Image whiteFlash;
 
     private readonly Queue<Message> pending = new Queue<Message>();
     private float noticeTimer;
@@ -108,6 +115,12 @@ public class HUDController : MonoBehaviour, IMessageView
         Enqueue(title, body, image);
     }
 
+    // Como ShowMemory, pero entra con un fundido a blanco: solo para los recuerdos
+    public void ShowRecollection(string title, string body, Sprite image)
+    {
+        Enqueue(title, body, image, true);
+    }
+
     public void HideMessage()
     {
         if (pending.Count > 0)
@@ -121,9 +134,9 @@ public class HUDController : MonoBehaviour, IMessageView
         if (levelManager != null) levelManager.SetReading(false);
     }
 
-    private void Enqueue(string title, string body, Sprite image)
+    private void Enqueue(string title, string body, Sprite image, bool flash = false)
     {
-        var message = new Message { title = title, body = body, image = image };
+        var message = new Message { title = title, body = body, image = image, flash = flash };
 
         if (IsReading)
         {
@@ -147,6 +160,41 @@ public class HUDController : MonoBehaviour, IMessageView
         }
 
         messagePanel.SetActive(true);
+        if (message.flash) StartCoroutine(FlashRoutine());
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        if (whiteFlash == null) whiteFlash = CreateWhiteFlash();
+        whiteFlash.transform.SetAsLastSibling();
+        whiteFlash.enabled = true;
+
+        float time = 0f;
+        while (time < flashSeconds)
+        {
+            whiteFlash.color = new Color(1f, 1f, 1f, 1f - time / flashSeconds);
+            // Sin escala de tiempo: el juego está detenido mientras se lee
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        whiteFlash.enabled = false;
+    }
+
+    // Un rectángulo blanco a pantalla completa que se crea la primera vez
+    private Image CreateWhiteFlash()
+    {
+        var go = new GameObject("FundidoBlanco", typeof(RectTransform), typeof(Image));
+        var rect = (RectTransform)go.transform;
+        rect.SetParent(messagePanel.transform.parent, false);
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        var image = go.GetComponent<Image>();
+        image.raycastTarget = false;
+        return image;
     }
 
     private void HandleLivesChanged(int lives)

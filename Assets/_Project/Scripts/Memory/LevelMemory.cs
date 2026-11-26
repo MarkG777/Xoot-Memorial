@@ -30,13 +30,13 @@ public class LevelMemory : MonoBehaviour
         {
             completeShown = true;
             scoreManager.AddScore(scoreManager.Rules.MemoryPoints);
-            hud.ShowMemory("Recuerdo desbloqueado", data.MemoryText + "\n\nLa puerta de salida ya puede abrirse.", memoryImage);
+            hud.ShowRecollection("Recuerdo desbloqueado", data.MemoryText + "\n\nLa puerta de salida ya puede abrirse.", memoryImage);
             if (memoryUnlockedEvent != null) memoryUnlockedEvent.Raise();
         }
         else if (keys == required - 1 && !fragmentShown)
         {
             fragmentShown = true;
-            hud.ShowMemory("Un fragmento del recuerdo...", data.MemoryFragmentText, memoryImage);
+            hud.ShowRecollection("Un fragmento del recuerdo...", data.MemoryFragmentText, memoryImage);
         }
     }
 }
