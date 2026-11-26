@@ -494,6 +494,7 @@ public static partial class XootBuilder
 
         AddLevelSelect();
         AddLegendsMenu();
+        AddCredits();
         SaveScene("MainMenu");
     }
 

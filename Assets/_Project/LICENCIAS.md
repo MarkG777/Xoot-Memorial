@@ -7,7 +7,7 @@
 | Efectos de sonido y música | `Audio` | Equipo Xoot Memorial | Sintetizados con un script propio (Python), asistido con Claude Code |
 | Fuente LiberationSans (TextMesh Pro) | `../TextMesh Pro` | Red Hat | SIL Open Font License 1.1, incluida con TextMesh Pro |
 
-No se usaron recursos descargados de terceros.
+El único recurso descargado de terceros es el llanto de La Llorona (ver la tabla del Nivel 2).
 
 La leyenda de La Zacatecana se cuenta como tradición oral de Querétaro ("según cuentan"); los textos son una versión breve y apta para todo público.
 
@@ -17,5 +17,5 @@ La leyenda de La Zacatecana se cuenta como tradición oral de Querétaro ("segú
 |---|---|---|
 | Pixel art de Guanajuato (cantera, casas, cofre, puerta, alacrán, La Llorona) | Equipo Xoot Memorial | Script propio (Python + Pillow), asistido con Claude Code |
 | Sonidos de la secuencia inicial y música de Guanajuato (`Audio/Intro`, `Audio`) | Equipo Xoot Memorial | Síntesis con scripts propios, asistida con Claude Code |
-| `llorona_ay_mis_hijos.wav` | Provisional | Voz de Windows (Microsoft Sabina, es-MX) con efectos propios. Pendiente de reemplazar por un audio mejor |
+| `llorona_raspberrytickle2.wav` | **RaspberryTickle2** (tercero) | "La Llorona", https://freesound.org/people/RaspberryTickle2/sounds/444614/ — licencia **CC BY 3.0** (https://creativecommons.org/licenses/by/3.0/). Cambio: volumen normalizado. El crédito se muestra en el menú principal |
 | Pixel art de la víbora de cascabel | Equipo Xoot Memorial | Script propio (Python + Pillow), asistido con Claude Code |

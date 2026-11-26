@@ -16,11 +16,11 @@ public class BossCry : MonoBehaviour
 
     [Header("A lo lejos (antes de que aparezca)")]
     [SerializeField] private float firstDistantCry = 6f;
-    [SerializeField] private float distantEvery = 28f;
+    [SerializeField] private float distantEvery = 30f;
     [SerializeField, Range(0f, 1f)] private float distantVolume = 0.3f;
 
     [Header("Durante el encuentro")]
-    [SerializeField] private float bossEvery = 10f;
+    [SerializeField] private float bossEvery = 30f;
     [SerializeField, Range(0f, 1f)] private float bossVolume = 0.9f;
 
     [SerializeField] private float textSeconds = 3.8f;
@@ -47,7 +47,11 @@ public class BossCry : MonoBehaviour
         wasPresent = present;
 
         // Cuando la leyenda se calma, el llanto termina
-        if (boss.IsCalmed) return;
+        if (boss.IsCalmed)
+        {
+            if (source.isPlaying) source.Stop();
+            return;
+        }
 
         timer -= Time.deltaTime;
         if (timer > 0f) return;
@@ -61,6 +65,7 @@ public class BossCry : MonoBehaviour
         if (player != null && bossBody != null)
             source.panStereo = Mathf.Clamp((bossBody.position.x - player.position.x) / 10f, -0.8f, 0.8f);
 
+        source.Stop();
         source.PlayOneShot(cryClip, near ? bossVolume : distantVolume);
 
         cryText.text = near ? phrase : "(a lo lejos) ..." + phrase.ToLower();

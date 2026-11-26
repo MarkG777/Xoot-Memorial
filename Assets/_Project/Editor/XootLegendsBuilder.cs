@@ -126,6 +126,22 @@ public static partial class XootBuilder
         EditorSceneManager.MarkSceneDirty(canvas.scene);
     }
 
+    // ---------------------------------------------------------------- crédito del audio (licencia CC BY)
+    [MenuItem("Xoot/21. Agregar créditos al menú abierto")]
+    public static void AddCredits()
+    {
+        var canvas = GameObject.Find("Menu");
+        if (canvas == null || canvas.transform.Find("Creditos") != null) return;
+
+        var credits = UiText(canvas.transform, "Creditos",
+            "Llanto: «La Llorona» de RaspberryTickle2 (freesound.org), licencia CC BY 3.0, con volumen ajustado",
+            16f, new Color(1f, 0.96f, 0.9f, 0.85f), TextAlignmentOptions.BottomRight);
+        Place(credits.gameObject, new Vector2(1f, 0f), new Vector2(-14f, 8f), new Vector2(900f, 26f));
+        // Detrás de los paneles para que no se encime con ellos
+        credits.transform.SetSiblingIndex(canvas.transform.Find("Botones").GetSiblingIndex());
+        EditorSceneManager.MarkSceneDirty(canvas.scene);
+    }
+
     // ---------------------------------------------------------------- llanto de La Llorona
     [MenuItem("Xoot/17. Agregar el llanto de La Llorona al nivel abierto")]
     public static void AddLloronaCry()
@@ -147,7 +163,7 @@ public static partial class XootBuilder
         Set(cry, "boss", boss);
         Set(cry, "levelManager", manager);
         Set(cry, "source", source);
-        Set(cry, "cryClip", Clip("llorona_ay_mis_hijos"));
+        Set(cry, "cryClip", Clip("llorona_raspberrytickle2"));
         Set(cry, "cryText", text);
         Set(cry, "player", Object.FindAnyObjectByType<PlayerController2D>().transform);
         Set(cry, "bossBody", boss.transform.Find("Silueta"));

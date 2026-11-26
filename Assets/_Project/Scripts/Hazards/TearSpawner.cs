@@ -64,7 +64,7 @@ public class TearSpawner : MonoBehaviour
         if (cueSource == null || cueClip == null || player == null) return;
 
         cueSource.panStereo = Mathf.Clamp((x - player.position.x) / 4f, -1f, 1f);
-        cueSource.PlayOneShot(cueClip, 0.5f);
+        cueSource.PlayOneShot(cueClip, 0.28f);
     }
 
     private TearDrop CreateTear()

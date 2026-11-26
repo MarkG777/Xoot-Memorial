@@ -50,7 +50,7 @@ public class BatSpawner : MonoBehaviour
         if (cueSource == null || cueClip == null || player == null) return;
 
         cueSource.panStereo = x >= player.position.x ? 0.85f : -0.85f;
-        cueSource.PlayOneShot(cueClip, 0.55f);
+        cueSource.PlayOneShot(cueClip, 0.28f);
     }
 
     // Se llama al entrar a la zona para que el primer murciélago salga pronto
