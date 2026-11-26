@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private HUDController hud;
     [SerializeField] private GameEvent activatedEvent;
+    [SerializeField] private ParticleSystem activateEffect;
 
     private bool activated;
 
@@ -19,6 +20,7 @@ public class Checkpoint : MonoBehaviour
 
         activated = true;
         spriteRenderer.sprite = onSprite;
+        if (activateEffect != null) activateEffect.Play();
         lives.SetCheckpoint(respawnPoint != null ? respawnPoint.position : transform.position);
         if (hud != null) hud.ShowNotice("Punto seguro activado", 2f);
         if (activatedEvent != null) activatedEvent.Raise();

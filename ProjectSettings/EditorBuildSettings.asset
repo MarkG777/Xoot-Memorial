@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Nivel1_Queretaro.unity
     guid: d04ad7264c259d04fa48ea6500f55fe7
+  - enabled: 1
+    path: Assets/_Project/Scenes/Nivel2_Guanajuato.unity
+    guid: 30fd770213e8ace43a9aa75b2810e9e2
   m_configObjects: {}

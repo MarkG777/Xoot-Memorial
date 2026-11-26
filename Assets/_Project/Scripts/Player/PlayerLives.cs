@@ -12,6 +12,7 @@ public class PlayerLives : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private GameEvent lifeLostEvent;
     [SerializeField] private GameEvent respawnedEvent;
+    [SerializeField] private ParticleSystem hurtEffect;
 
     private PlayerController2D controller;
     private Rigidbody2D body;
@@ -49,6 +50,7 @@ public class PlayerLives : MonoBehaviour
 
         CurrentLives--;
         hurting = true;
+        if (hurtEffect != null) hurtEffect.Play();
         LivesChanged?.Invoke(CurrentLives);
         LifeLost?.Invoke();
         if (lifeLostEvent != null) lifeLostEvent.Raise();

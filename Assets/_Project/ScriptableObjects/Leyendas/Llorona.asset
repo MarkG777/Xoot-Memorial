@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93318cc7a7e9a142ab6794e0a2fd376, type: 3}
+  m_Name: Llorona
+  m_EditorClassIdentifier: Assembly-CSharp::LegendData
+  legendName: La Llorona
+  regionName: Guanajuato
+  letterText: "\xABPara quien quiera recordar:\n\nEn todo M\xE9xico se cuenta que,
+    de noche y cerca del agua, una mujer vestida de blanco llora buscando a sus hijos:
+    \xA1Ay, mis hijos!\n\nSi oyes su llanto en los callejones, f\xEDjate de qu\xE9
+    lado viene. No la quieras vencer: escucha su historia.\xBB"
+  menuText: "La Llorona se cuenta en todo M\xE9xico y en otros pa\xEDses: una mujer
+    vestida de blanco que de noche, cerca del agua, llora buscando a sus hijos.\n\nMuchos
+    relacionan su origen con Cihuac\xF3atl, diosa mexica. En los relatos que recogi\xF3
+    fray Bernardino de Sahag\xFAn, antes de la Conquista se o\xEDa por las noches
+    a una mujer llorar y decir: \xABHijos m\xEDos, \xBFad\xF3nde os llevar\xE9?\xBB.
+    Se recuerda como uno de los presagios de aquella \xE9poca."
+  picture: {fileID: 21300000, guid: 3c1a493b265553d44addc1bafb338817, type: 3}

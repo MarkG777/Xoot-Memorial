@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 // Coordina el estado del nivel: jugando, leyendo, en pausa, completado o sin vidas.
 // Los demás componentes consultan IsPlaying antes de actuar (como el GameManager de la P5).
@@ -58,6 +59,12 @@ public class LevelManager : MonoBehaviour
         if (data != null && !string.IsNullOrEmpty(data.IntroText))
         {
             hud.ShowMessage(data.LevelName + ": " + data.RegionName, data.IntroText);
+        }
+
+        // La carta sobre la leyenda queda en fila después de la bienvenida
+        if (data != null && data.Legend != null)
+        {
+            hud.ShowMessage("Carta sobre " + data.Legend.LegendName, data.Legend.LetterText);
         }
     }
 
@@ -132,6 +139,10 @@ public class LevelManager : MonoBehaviour
 
         ScoreRules rules = scoreManager.Rules;
         scoreManager.AddScore(rules.LevelPoints + rules.PointsPerRemainingLife * playerLives.CurrentLives);
+
+        // Queda guardado que este nivel se pasó, para poder repetirlo desde el menú
+        LevelSaves.MarkCompleted(SceneManager.GetActiveScene().name, scoreManager.LevelScore);
+
         scoreManager.SaveToSession();
 
         SetState(LevelState.Completed);

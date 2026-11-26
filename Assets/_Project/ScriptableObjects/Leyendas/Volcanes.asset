@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93318cc7a7e9a142ab6794e0a2fd376, type: 3}
+  m_Name: Volcanes
+  m_EditorClassIdentifier: Assembly-CSharp::LegendData
+  legendName: "Popocat\xE9petl e Iztacc\xEDhuatl"
+  regionName: Puebla
+  letterText: "\xABPara quien quiera recordar:\n\nDesde Puebla se ven dos volcanes.
+    Cuentan que antes fueron una princesa y un guerrero que se quer\xEDan, y que
+    ni el tiempo pudo separarlos.\n\nSi olvidas su historia, solo ver\xE1s monta\xF1as.\xBB"
+  menuText: "Cuentan que la princesa Iztacc\xEDhuatl se enamor\xF3 de Popocat\xE9petl,
+    un guerrero al servicio de su padre. \xC9l parti\xF3 a la guerra y, seg\xFAn
+    muchas versiones, a ella le dijeron que hab\xEDa muerto; la tristeza la venci\xF3.\n\nCuando
+    \xE9l regres\xF3, la llev\xF3 a la monta\xF1a y se qued\xF3 vel\xE1ndola con
+    una antorcha. Se convirtieron en dos volcanes: la \xABmujer dormida\xBB y el
+    Popo, que todav\xEDa echa humo. Existen varias versiones."
+  picture: {fileID: 0}

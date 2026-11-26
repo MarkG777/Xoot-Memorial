@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8d229ee98dfeb4cb3c6b58654713a8, type: 3}
+  m_Name: Animal_Alacran
+  m_EditorClassIdentifier: Assembly-CSharp::AnimalData
+  commonName: "Alacr\xE1n"
+  species: Centruroides infamatus
+  facts: "Es una de las especies de alacr\xE1n que viven en Guanajuato. Sale sobre
+    todo de noche. Su picadura puede ser peligrosa: en la vida real hay que ir al
+    m\xE9dico de inmediato.\n\nS\xE1ltalo, no lo pises."
+  picture: {fileID: 21300000, guid: 6ef0c41055dc19943abbdece9a2ed724, type: 3}

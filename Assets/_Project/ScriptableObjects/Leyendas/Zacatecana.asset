@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93318cc7a7e9a142ab6794e0a2fd376, type: 3}
+  m_Name: Zacatecana
+  m_EditorClassIdentifier: Assembly-CSharp::LegendData
+  legendName: La Zacatecana
+  regionName: "Quer\xE9taro"
+  letterText: "\xABPara quien quiera recordar:\n\nEn el centro de Quer\xE9taro hay
+    una casona de la que se cuenta una leyenda: la de una mujer llegada de Zacatecas
+    y de un secreto que guard\xF3 bajo su techo.\n\nEl olvido torci\xF3 su historia.
+    Si la escuchas completa, la podr\xE1s calmar.\xBB"
+  menuText: "Seg\xFAn cuentan en Quer\xE9taro, a inicios del siglo XIX vivi\xF3 en
+    una casona del centro una mujer llegada de Zacatecas, esposa de un hombre rico.\n\nLa
+    leyenda habla de una traici\xF3n, de la desaparici\xF3n del esposo y de un secreto
+    guardado en la casa. Las versiones cambian y los documentos no la confirman:
+    se conserva de boca en boca.\n\nHoy la casona es el Museo Casa de la Zacatecana."
+  picture: {fileID: 21300000, guid: ab44891de99d1bf48b2d602e50402e71, type: 3}

@@ -17,6 +17,7 @@ public class KeyChest : MonoBehaviour, IInteractable
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite openSprite;
     [SerializeField] private SpriteRenderer keyPopup;
+    [SerializeField] private ParticleSystem openEffect;
 
     [Header("Nivel")]
     [SerializeField] private LevelProgress progress;
@@ -57,6 +58,7 @@ public class KeyChest : MonoBehaviour, IInteractable
 
         IsOpen = true;
         spriteRenderer.sprite = openSprite;
+        if (openEffect != null) openEffect.Play();
         if (chestOpenedEvent != null) chestOpenedEvent.Raise();
 
         // El texto de la pista se muestra primero; el recuerdo (si toca) queda en fila después

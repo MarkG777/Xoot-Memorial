@@ -11,6 +11,7 @@ public class BossController : MonoBehaviour
         public string name;
         [TextArea(2, 5)] public string storyFragment;
         public BatSpawner[] spawners;
+        public TearSpawner[] tearSpawners;
         public GameObject[] obstacles;
     }
 
@@ -83,6 +84,13 @@ public class BossController : MonoBehaviour
         {
             bool active = i == index;
             foreach (BatSpawner spawner in phases[i].spawners)
+            {
+                if (spawner == null) continue;
+                spawner.Active = active;
+                if (active) spawner.Prime();
+            }
+
+            foreach (TearSpawner spawner in phases[i].tearSpawners)
             {
                 if (spawner == null) continue;
                 spawner.Active = active;

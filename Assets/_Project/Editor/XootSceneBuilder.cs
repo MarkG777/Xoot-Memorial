@@ -99,7 +99,8 @@ public static partial class XootBuilder
     }
 
     // Todo lo que comparten los niveles: jugador, sistemas, tablero, cámara, fondo y límites
-    private static LevelContext BeginLevel(string dataName, Vector2 start, float width, float height, string music, Color tint, string memoryImagePath)
+    private static LevelContext BeginLevel(string dataName, Vector2 start, float width, float height, string music, Color tint, string memoryImagePath,
+        string backdrop = "bg_aqueduct")
     {
         EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
 
@@ -193,7 +194,7 @@ public static partial class XootBuilder
         arches.transform.SetParent(background, false);
         arches.transform.position = new Vector3(width / 2f, 1.5f, 0f);
         var archRenderer = arches.AddComponent<SpriteRenderer>();
-        archRenderer.sprite = S("bg_aqueduct");
+        archRenderer.sprite = S(backdrop);
         archRenderer.drawMode = SpriteDrawMode.Tiled;
         archRenderer.size = new Vector2(80f, 8f);
         archRenderer.sortingOrder = -90;
@@ -410,6 +411,7 @@ public static partial class XootBuilder
         Phase(phases, 2, "las azoteas rotas", "Hoy la casona es un museo y Querétaro sigue contando su leyenda. Recordarla le quita fuerza al olvido.", new[] { phase3 });
         so.ApplyModifiedPropertiesWithoutUndo();
 
+        AddPostProcessing();
         SaveScene(name);
     }
 
@@ -421,6 +423,7 @@ public static partial class XootBuilder
         var list = phase.FindPropertyRelative("spawners");
         list.arraySize = spawners.Length;
         for (int i = 0; i < spawners.Length; i++) list.GetArrayElementAtIndex(i).objectReferenceValue = spawners[i];
+        phase.FindPropertyRelative("tearSpawners").arraySize = 0;
         phase.FindPropertyRelative("obstacles").arraySize = 0;
     }
 
@@ -487,6 +490,8 @@ public static partial class XootBuilder
         UnityEventTools.AddBoolPersistentListener(controls.onClick, window.SetActive, true);
         UnityEventTools.AddBoolPersistentListener(back.onClick, window.SetActive, false);
 
+        AddLevelSelect();
+        AddLegendsMenu();
         SaveScene("MainMenu");
     }
 
@@ -519,7 +524,7 @@ public static partial class XootBuilder
     [MenuItem("Xoot/8. Poner sonido a la secuencia abierta")]
     public static void AddIntroSounds()
     {
-        var intro = Object.FindFirstObjectByType<IntroComic>();
+        var intro = Object.FindAnyObjectByType<IntroComic>();
         if (intro == null) return;
 
         var so = new SerializedObject(intro);

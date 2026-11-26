@@ -12,6 +12,11 @@ public class BatSpawner : MonoBehaviour
     [SerializeField] private float direction = -1f;
     [SerializeField] private Vector2 heightRange = new Vector2(-1f, 1f);
 
+    [Header("Aviso sonoro opcional: suena del lado de donde viene")]
+    [SerializeField] private AudioSource cueSource;
+    [SerializeField] private AudioClip cueClip;
+    [SerializeField] private Transform player;
+
     private ObjectPool<Bat> pool;
     private float timer;
 
@@ -37,6 +42,15 @@ public class BatSpawner : MonoBehaviour
         Bat bat = pool.Get();
         Vector3 position = transform.position + Vector3.up * Random.Range(heightRange.x, heightRange.y);
         bat.Launch(position, direction, batSpeed, batLifeTime);
+        PlayCue(position.x);
+    }
+
+    private void PlayCue(float x)
+    {
+        if (cueSource == null || cueClip == null || player == null) return;
+
+        cueSource.panStereo = x >= player.position.x ? 0.85f : -0.85f;
+        cueSource.PlayOneShot(cueClip, 0.55f);
     }
 
     // Se llama al entrar a la zona para que el primer murciélago salga pronto

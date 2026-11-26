@@ -7,6 +7,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private ScoreRules rules;
 
     public int Score { get; private set; }
+
+    // Puntos conseguidos solo en este nivel (sin lo acumulado de niveles anteriores)
+    public int LevelScore => Mathf.Max(0, Score - GameSession.TotalScore);
     public ScoreRules Rules => rules;
 
     public event Action<int> ScoreChanged;

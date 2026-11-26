@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e28a156e9727b4290eaed43600d848, type: 3}
+  m_Name: Nivel2_Guanajuato
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Nivel 2
+  regionName: Guanajuato
+  introText: "\xABLos callejones suben y suben... y alguien llora a lo lejos.\xBB\n\nCuidado
+    con los alacranes. Cuando oigas el llanto, f\xEDjate de qu\xE9 lado viene."
+  requiredKeys: 3
+  legend: {fileID: 11400000, guid: fbc3af64e0c668c4aa5e91ea8a61f367, type: 2}
+  memoryFragmentText: "Un callej\xF3n lleno de risas... Tu amigo te ense\xF1a una
+    foto, pero la niebla no te deja verla."
+  memoryText: "En lo alto de un callej\xF3n, tu amigo te dice: \xABCuando no me veas,
+    escucha\xBB. El eco repite su voz hasta que la niebla la apaga.\n\n\xABEstuvo
+    aqu\xED. No lo voy a olvidar.\xBB"
+  completedText: "El llanto se apaga y los callejones recuperan sus colores. El viaje
+    contin\xFAa en Puebla."
+  nextSceneName: MainMenu

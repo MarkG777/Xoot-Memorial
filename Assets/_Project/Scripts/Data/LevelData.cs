@@ -9,6 +9,9 @@ public class LevelData : ScriptableObject
     [SerializeField, TextArea(2, 5)] private string introText = "";
     [SerializeField, Min(1)] private int requiredKeys = 3;
 
+    [Header("Leyenda del nivel (carta que se lee al empezar)")]
+    [SerializeField] private LegendData legend;
+
     [Header("Recuerdo")]
     [SerializeField, TextArea(2, 6)] private string memoryFragmentText = "";
     [SerializeField, TextArea(2, 6)] private string memoryText = "";
@@ -20,6 +23,7 @@ public class LevelData : ScriptableObject
     public string LevelName => levelName;
     public string RegionName => regionName;
     public string IntroText => introText;
+    public LegendData Legend => legend;
     public int RequiredKeys => requiredKeys;
     public string MemoryFragmentText => memoryFragmentText;
     public string MemoryText => memoryText;

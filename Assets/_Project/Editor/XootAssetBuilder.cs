@@ -90,8 +90,10 @@ public static partial class XootBuilder
     public static void ImportArt()
     {
         AssetDatabase.Refresh();
-        var bottomPivot = new HashSet<string> { "chest_closed", "chest_open", "door_closed", "door_open", "lantern_off", "lantern_on", "spikes" };
-        var tiled = new HashSet<string> { "tile_top", "tile_fill", "platform", "platform_cracked", "spikes", "bg_aqueduct", "white" };
+        var bottomPivot = new HashSet<string> { "chest_closed", "chest_open", "door_closed", "door_open", "lantern_off", "lantern_on", "spikes",
+            "gto_chest_closed", "gto_chest_open", "gto_door_closed", "gto_door_open", "alacran_0", "alacran_1" };
+        var tiled = new HashSet<string> { "tile_top", "tile_fill", "platform", "platform_cracked", "spikes", "bg_aqueduct", "white",
+            "gto_top", "gto_fill", "gto_platform", "gto_platform_cracked", "bg_guanajuato" };
 
         foreach (string guid in AssetDatabase.FindAssets("t:Texture2D", new[] { Pixel.TrimEnd('/') }))
         {
@@ -332,6 +334,10 @@ public static partial class XootBuilder
     [MenuItem("Xoot/4. Crear prefabs")]
     public static void CreatePrefabs()
     {
+        // Rehacer los prefabs puede romper ajustes hechos en las escenas: se pide confirmación
+        if (System.IO.File.Exists(Prefabs + "Jugador.prefab") && !Application.isBatchMode &&
+            !EditorUtility.DisplayDialog("Xoot", "Los prefabs ya existen. ¿Rehacerlos?", "Rehacer", "Cancelar")) return;
+
         Folder(Prefabs.TrimEnd('/'));
         var stats = AssetDatabase.LoadAssetAtPath<PlayerStats>(Data + "PlayerStats.asset");
         var noFriction = AssetDatabase.LoadAssetAtPath<PhysicsMaterial2D>("Assets/_Project/Art/SinFriccion.physicsMaterial2D");

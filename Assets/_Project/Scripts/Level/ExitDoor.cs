@@ -12,6 +12,7 @@ public class ExitDoor : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite openSprite;
     [SerializeField] private GameEvent doorOpenedEvent;
+    [SerializeField] private ParticleSystem openEffect;
 
     private bool opened;
 
@@ -39,6 +40,7 @@ public class ExitDoor : MonoBehaviour
     private IEnumerator OpenRoutine()
     {
         spriteRenderer.sprite = openSprite;
+        if (openEffect != null) openEffect.Play();
         if (doorOpenedEvent != null) doorOpenedEvent.Raise();
 
         yield return new WaitForSeconds(0.6f);

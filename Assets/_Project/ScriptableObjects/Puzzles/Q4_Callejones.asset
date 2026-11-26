@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123c9257801efe4bba2726223ec26a3, type: 3}
+  m_Name: Q4_Callejones
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
+  type: 1
+  title: "El ba\xFAl del minero"
+  question: "La etiqueta dice: \xABPrimero subimos al mirador, luego cruzamos el
+    callej\xF3n y al final bajamos al t\xFAnel\xBB. Ordena las fotos del paseo."
+  code: 
+  options:
+  - El mirador
+  - "El callej\xF3n"
+  - "El t\xFAnel"
+  displayOrder: 010000000200000000000000
+  correctChoice: 0
