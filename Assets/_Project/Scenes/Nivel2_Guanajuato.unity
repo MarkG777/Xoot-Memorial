@@ -6911,16 +6911,16 @@ MonoBehaviour:
   boss: {fileID: 879529976}
   levelManager: {fileID: 1866984502}
   source: {fileID: 879529979}
-  cryClip: {fileID: 8300000, guid: 3825fb46f1adb1a46942413c0a0efe2e, type: 3}
+  cryClip: {fileID: 8300000, guid: e29660a63572c7543b348be86b42a5ad, type: 3}
   cryText: {fileID: 294036028}
   player: {fileID: 2100457531}
   bossBody: {fileID: 868648747}
   phrase: "\xA1Ay, mis hijos!"
-  firstDistantCry: 6
-  distantEvery: 28
-  distantVolume: 0.3
-  bossEvery: 10
-  bossVolume: 0.9
+  firstDistantCry: 8
+  distantEvery: 30
+  distantVolume: 0.4
+  bossEvery: 30
+  bossVolume: 1
   textSeconds: 3.8
 --- !u!82 &879529979
 AudioSource:

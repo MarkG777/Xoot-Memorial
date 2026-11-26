@@ -27,6 +27,12 @@ public class PuzzleData : ScriptableObject
     [Tooltip("Choice: índice de la respuesta correcta")]
     [SerializeField] private int correctChoice;
 
+    [Header("Dibujos opcionales (patrón de azulejos)")]
+    [SerializeField] private Sprite picture;
+    [SerializeField] private Sprite[] optionPictures;
+
+    public Sprite Picture => picture;
+    public Sprite[] OptionPictures => optionPictures;
     public PuzzleType Type => type;
     public string Title => title;
     public string Question => question;

@@ -23,6 +23,11 @@ public class PuzzlePanelUI : MonoBehaviour
     [SerializeField] private GameObject optionList;
     [SerializeField] private Button[] optionButtons;
 
+    [Header("Dibujos (opcional)")]
+    [SerializeField] private Image pictureImage;
+    [SerializeField] private Image[] optionIcons;
+    [SerializeField] private float pictureOptionsOffset = -45f;
+
     [Header("Salir")]
     [SerializeField] private Button closeButton;
 
@@ -34,6 +39,7 @@ public class PuzzlePanelUI : MonoBehaviour
     private Action solvedAction;
     private string typed = "";
     private int orderStep;
+    private float optionListY;
 
     public bool IsOpen => panel.activeSelf;
 
@@ -51,6 +57,7 @@ public class PuzzlePanelUI : MonoBehaviour
             optionButtons[i].onClick.AddListener(() => PressOption(slot));
         }
 
+        optionListY = optionList.GetComponent<RectTransform>().anchoredPosition.y;
         eraseButton.onClick.AddListener(Erase);
         closeButton.onClick.AddListener(Close);
         panel.SetActive(false);
@@ -94,6 +101,7 @@ public class PuzzlePanelUI : MonoBehaviour
         keypad.SetActive(isCode);
         optionList.SetActive(!isCode);
 
+        ShowPictures(puzzle);
         ResetAnswer();
         panel.SetActive(true);
     }
@@ -102,6 +110,30 @@ public class PuzzlePanelUI : MonoBehaviour
     {
         panel.SetActive(false);
         levelManager.ExitPuzzle();
+    }
+
+    // Si el puzzle trae dibujo, ocupa el lugar de la línea de respuesta y las opciones bajan un poco
+    private void ShowPictures(PuzzleData puzzle)
+    {
+        bool hasPicture = pictureImage != null && puzzle.Picture != null;
+        if (pictureImage != null)
+        {
+            pictureImage.gameObject.SetActive(hasPicture);
+            pictureImage.sprite = puzzle.Picture;
+        }
+
+        answerText.gameObject.SetActive(!hasPicture);
+        RectTransform list = optionList.GetComponent<RectTransform>();
+        list.anchoredPosition = new Vector2(list.anchoredPosition.x, optionListY + (hasPicture ? pictureOptionsOffset : 0f));
+
+        if (optionIcons == null) return;
+        for (int i = 0; i < optionIcons.Length; i++)
+        {
+            int index = puzzle.Options != null && i < puzzle.Options.Length ? OptionIndex(i) : -1;
+            Sprite icon = index >= 0 && puzzle.OptionPictures != null && index < puzzle.OptionPictures.Length ? puzzle.OptionPictures[index] : null;
+            optionIcons[i].gameObject.SetActive(icon != null);
+            optionIcons[i].sprite = icon;
+        }
     }
 
     private void ResetAnswer()

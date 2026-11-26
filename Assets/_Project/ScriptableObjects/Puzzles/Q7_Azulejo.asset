@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123c9257801efe4bba2726223ec26a3, type: 3}
+  m_Name: Q7_Azulejo
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
+  type: 2
+  title: "El ba\xFAl de talavera"
+  question: "Los azulejos siguen un patr\xF3n. \xBFCu\xE1l falta en el cuadro con
+    la pregunta?"
+  code: 
+  options:
+  - Flor azul
+  - Estrella amarilla
+  - Rombo verde
+  displayOrder: 
+  correctChoice: 1
+  picture: {fileID: 21300000, guid: 134f8b4edf1044143b124c0f623df292, type: 3}
+  optionPictures:
+  - {fileID: 21300000, guid: a35eb93ee74ad984f8a4dbc4293a3328, type: 3}
+  - {fileID: 21300000, guid: 1486862cd5526364d836d80cc68030da, type: 3}
+  - {fileID: 21300000, guid: bf6cfa69073040549a4df2a8fe1fb98d, type: 3}

@@ -213,6 +213,19 @@ public static partial class XootBuilder
         for (int i = 0; i < 4; i++)
             optionButtons[i] = UiButton(list.transform, "Opcion" + (i + 1), "Opción", new Vector2(0f, 96f - i * 66f), new Vector2(480f, 56f), 26f);
 
+        var puzzlePicture = UiImage(box, "Dibujo", null, Color.white);
+        puzzlePicture.preserveAspect = true;
+        Place(puzzlePicture.gameObject, new Vector2(0.5f, 1f), new Vector2(0f, -172f), new Vector2(520f, 86f));
+        puzzlePicture.gameObject.SetActive(false);
+        var optionIcons = new Image[4];
+        for (int i = 0; i < 4; i++)
+        {
+            optionIcons[i] = UiImage(optionButtons[i].transform, "Icono", null, Color.white);
+            optionIcons[i].preserveAspect = true;
+            Place(optionIcons[i].gameObject, new Vector2(0f, 0.5f), new Vector2(14f, 0f), new Vector2(46f, 46f));
+            optionIcons[i].gameObject.SetActive(false);
+        }
+
         var feedback = UiText(box, "Aviso", "", 22f, new Color(1f, 0.55f, 0.55f), TextAlignmentOptions.Center);
         Place(feedback.gameObject, new Vector2(0.5f, 0f), new Vector2(0f, 76f), new Vector2(690f, 32f));
         var closeButton = UiButton(box, "Cerrar", "Salir (Esc)", new Vector2(0f, -250f), new Vector2(200f, 46f), 22f);
@@ -273,6 +286,8 @@ public static partial class XootBuilder
         Set(puzzlePanel, "eraseButton", erase);
         Set(puzzlePanel, "optionList", list);
         Set(puzzlePanel, "optionButtons", optionButtons);
+        Set(puzzlePanel, "pictureImage", puzzlePicture);
+        Set(puzzlePanel, "optionIcons", optionIcons);
         Set(puzzlePanel, "closeButton", closeButton);
         Set(puzzlePanel, "puzzleSolvedEvent", Ev("PuzzleResuelto"));
         Set(puzzlePanel, "puzzleFailedEvent", Ev("PuzzleFallado"));

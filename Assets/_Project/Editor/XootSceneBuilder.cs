@@ -307,6 +307,7 @@ public static partial class XootBuilder
         if (path.Contains("Nivel1")) return 2;
         if (path.Contains("Nivel2")) return 3;
         if (path.Contains("Nivel3")) return 4;
+        if (path.EndsWith("Cierre.unity")) return 5;
         return 9;
     }
 

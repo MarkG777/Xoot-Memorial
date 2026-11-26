@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e28a156e9727b4290eaed43600d848, type: 3}
+  m_Name: Nivel3_Puebla
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Nivel 3
+  regionName: Puebla
+  introText: "\xABDesde las azoteas se ven los dos volcanes. Mi amigo quer\xEDa dibujarlos.\xBB\n\nAqu\xED
+    viven los teporingos: no los pises. Las rocas brillan en el suelo antes de caer."
+  requiredKeys: 3
+  legend: {fileID: 11400000, guid: 534985e9b1375044da4d00f09943d2ac, type: 2}
+  memoryFragmentText: "En una azotea, entre c\xFApulas de azulejo, alguien dibuja
+    dos monta\xF1as..."
+  memoryText: "Tu amigo te ense\xF1a su dibujo de los volcanes y dice: \xABSi un
+    d\xEDa no me ves, m\xEDralos y acu\xE9rdate de m\xED\xBB. Esta vez la niebla
+    no logra borrar del todo su sonrisa.\n\n\xABYa casi te recuerdo.\xBB"
+  completedText: "El volc\xE1n descansa y ya recuperaste tres recuerdos de tu amigo.\n\nContinuar\xE1:
+    el viaje sigue hacia Oaxaca."
+  nextSceneName: Cierre

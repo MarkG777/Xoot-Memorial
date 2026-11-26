@@ -92,9 +92,11 @@ public static partial class XootBuilder
         AssetDatabase.Refresh();
         var bottomPivot = new HashSet<string> { "chest_closed", "chest_open", "door_closed", "door_open", "lantern_off", "lantern_on", "spikes",
             "gto_chest_closed", "gto_chest_open", "gto_door_closed", "gto_door_open", "alacran_0", "alacran_1",
-            "cascabel_0", "cascabel_1" };
+            "cascabel_0", "cascabel_1", "pue_chest_closed", "pue_chest_open", "pue_door_closed", "pue_door_open",
+            "teporingo_0", "teporingo_1" };
         var tiled = new HashSet<string> { "tile_top", "tile_fill", "platform", "platform_cracked", "spikes", "bg_aqueduct", "white",
-            "gto_top", "gto_fill", "gto_platform", "gto_platform_cracked", "bg_guanajuato" };
+            "gto_top", "gto_fill", "gto_platform", "gto_platform_cracked", "bg_guanajuato",
+            "pue_top", "pue_fill", "pue_platform", "pue_platform_cracked", "bg_puebla" };
 
         foreach (string guid in AssetDatabase.FindAssets("t:Texture2D", new[] { Pixel.TrimEnd('/') }))
         {
