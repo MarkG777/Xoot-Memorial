@@ -3,9 +3,14 @@ using UnityEngine.UI;
 
 // HUD mínimo del prototipo: aviso de interacción, contador de pistas y panel de lectura.
 // Se construye solo en tiempo de ejecución para no depender de ningún asset.
-public class SimpleHud : MonoBehaviour
+public class SimpleHud : MonoBehaviour, IMessageView
 {
     public static SimpleHud Instance { get; private set; }
+
+    public void ShowMessage(string title, string body)
+    {
+        ShowMessage(body);
+    }
 
     private Text promptText;
     private Text counterText;
@@ -17,6 +22,7 @@ public class SimpleHud : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        MessageView.Current = this;
         Build();
     }
 

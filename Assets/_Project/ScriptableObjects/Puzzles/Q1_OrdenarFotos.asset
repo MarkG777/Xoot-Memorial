@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123c9257801efe4bba2726223ec26a3, type: 3}
+  m_Name: Q1_OrdenarFotos
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
+  type: 1
+  title: La maleta olvidada
+  question: "El cierre de la maleta tiene tres fotos sueltas de un mismo viaje. Ord\xE9nalas:
+    \xBFqu\xE9 pas\xF3 primero?"
+  code: 
+  options:
+  - "Llegada a la estaci\xF3n"
+  - Paseo bajo los arcos
+  - "Despedida en el and\xE9n"
+  displayOrder: 020000000000000001000000
+  correctChoice: 0

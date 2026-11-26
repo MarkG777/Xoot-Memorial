@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e28a156e9727b4290eaed43600d848, type: 3}
+  m_Name: Nivel1_Queretaro
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: Nivel 1
+  regionName: "Quer\xE9taro"
+  introText: "\xABEsta estaci\xF3n... no deber\xEDa recordarla as\xED.\xBB\n\nSube
+    hasta la puerta. En 3 cofres hay llaves y pistas sobre tu amigo.\n\nA/D o flechas:
+    moverte \xB7 Shift: correr \xB7 Espacio: saltar \xB7 E: abrir"
+  requiredKeys: 3
+  memoryFragmentText: "Un and\xE9n con papel picado... Alguien te sonr\xEDe, pero
+    la niebla no te deja ver su rostro."
+  memoryText: "Tu amigo te saluda junto a los arcos y dice: \xABNos vemos pronto...\xBB.
+    Luego la niebla vuelve a borrar su rostro.\n\n\xABSe est\xE1 borrando... tengo
+    que seguir.\xBB"
+  completedText: "La niebla retrocede y Quer\xE9taro recupera sus colores. El viaje
+    contin\xFAa en Guanajuato."
+  nextSceneName: MainMenu

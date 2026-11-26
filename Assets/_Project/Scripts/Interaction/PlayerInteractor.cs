@@ -1,40 +1,58 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// RQF-02: interactuar con E con el objeto cercano. Si hay un texto abierto, E lo cierra.
+// RQF-02: interactuar con E con el objeto cercano.
 public class PlayerInteractor : MonoBehaviour
 {
-    private ClueItem nearbyClue;
+    [Tooltip("En el prototipo se deja vacío; en los niveles se asigna el LevelManager")]
+    [SerializeField] private LevelManager levelManager;
+
+    private IInteractable nearby;
+    private Component nearbyComponent;
 
     private void Update()
     {
         var keyboard = Keyboard.current;
-        var hud = SimpleHud.Instance;
-        if (keyboard == null || hud == null) return;
+        var view = MessageView.Current;
+        if (keyboard == null || view == null) return;
 
-        if (hud.IsReading)
+        if (levelManager == null)
         {
-            if (keyboard.eKey.wasPressedThisFrame || keyboard.escapeKey.wasPressedThisFrame) hud.HideMessage();
+            // Prototipo sin LevelManager: E o Esc cierran el texto abierto
+            if (view.IsReading)
+            {
+                if (keyboard.eKey.wasPressedThisFrame || keyboard.escapeKey.wasPressedThisFrame) view.HideMessage();
+                return;
+            }
+        }
+        else if (!levelManager.CanInteract)
+        {
             return;
         }
 
-        if (nearbyClue != null && keyboard.eKey.wasPressedThisFrame) nearbyClue.Interact();
+        if (nearby != null && keyboard.eKey.wasPressedThisFrame)
+        {
+            nearby.Interact();
+            if (nearby != null) view.SetPrompt(nearby.Prompt);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var clue = other.GetComponent<ClueItem>();
-        if (clue == null) return;
+        var interactable = other.GetComponent<IInteractable>();
+        if (interactable == null) return;
 
-        nearbyClue = clue;
-        SimpleHud.Instance?.SetPrompt("Presiona E para examinar");
+        nearby = interactable;
+        nearbyComponent = other;
+        MessageView.Current?.SetPrompt(interactable.Prompt);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.GetComponent<ClueItem>() != nearbyClue) return;
+        if (other != nearbyComponent) return;
 
-        nearbyClue = null;
-        SimpleHud.Instance?.SetPrompt(string.Empty);
+        nearby = null;
+        nearbyComponent = null;
+        MessageView.Current?.SetPrompt(string.Empty);
     }
 }

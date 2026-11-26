@@ -2,8 +2,10 @@ using UnityEngine;
 
 // RQF-03: objeto-pista. Al examinarlo muestra su texto y se cuenta una sola vez.
 [RequireComponent(typeof(Collider2D))]
-public class ClueItem : MonoBehaviour
+public class ClueItem : MonoBehaviour, IInteractable
 {
+    public string Prompt => "Presiona E para examinar";
+
     [SerializeField, TextArea] private string clueText = "Una foto antigua. Alguien borró los rostros.";
     [SerializeField] private Color collectedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
 
