@@ -16,6 +16,7 @@ public class IntroComic : MonoBehaviour
         public float zoomStart = 1f;
         public float zoomEnd = 1.06f;
         public AudioClip sound;
+        [Range(0f, 1f)] public float soundVolume = 1f;
     }
 
     [SerializeField] private Image panelImage;
@@ -24,6 +25,10 @@ public class IntroComic : MonoBehaviour
     [SerializeField] private Panel[] panels;
     [SerializeField] private float fadeTime = 0.4f;
     [SerializeField] private string nextScene = "Prototipo_Estacion";
+
+    [Header("Musica de fondo (se apaga poco a poco en la ultima vineta)")]
+    [SerializeField] private AudioSource musicSource;
+    [SerializeField] private float musicFadeTime = 2f;
 
     private bool skipRequested;
 
@@ -58,10 +63,18 @@ public class IntroComic : MonoBehaviour
             panelImage.sprite = panel.image;
             panelImage.rectTransform.localScale = Vector3.one * panel.zoomStart;
 
-            if (panel.sound != null && audioSource != null)
+            if (audioSource != null)
             {
-                audioSource.PlayOneShot(panel.sound);
+                // Se corta el efecto anterior para que no se encime con el de la nueva vineta
+                audioSource.Stop();
+                if (panel.sound != null)
+                {
+                    audioSource.PlayOneShot(panel.sound, panel.soundVolume);
+                }
             }
+
+            bool isLast = panel == panels[panels.Length - 1];
+            float musicStartVolume = musicSource != null ? musicSource.volume : 0f;
 
             float time = 0f;
             while (time < panel.duration && !skipRequested)
@@ -72,6 +85,11 @@ public class IntroComic : MonoBehaviour
                 float fadeIn = Mathf.Clamp01(time / fadeTime);
                 float fadeOut = Mathf.Clamp01((panel.duration - time) / fadeTime);
                 panelGroup.alpha = Mathf.Min(fadeIn, fadeOut);
+
+                if (isLast && musicSource != null)
+                {
+                    musicSource.volume = musicStartVolume * Mathf.Clamp01((panel.duration - time) / musicFadeTime);
+                }
 
                 float progress = Mathf.Clamp01(time / panel.duration);
                 panelImage.rectTransform.localScale = Vector3.one * Mathf.Lerp(panel.zoomStart, panel.zoomEnd, progress);

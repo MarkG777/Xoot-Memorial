@@ -491,6 +491,59 @@ public static partial class XootBuilder
     }
 
     // ---------------------------------------------------------------- Secuencia inicial (RQF-06)
+    // Un sonido por viñeta, siguiendo las notas del storyboard
+    private static readonly string[] IntroSounds =
+    {
+        "in01_vaso", "in02_click", "in03_reloj", "in04_ring", "in05_ring", "in06_fastidio", "in07_grabadora", "in08_mensaje",
+        "in09_sorpresa", "in10_recuerdo", "in11_pasos", "in12_corre", "in13_mensaje", "in14_colgar", "in15_lagrimas", "in16_postal"
+    };
+
+    private static readonly float[] IntroDurations =
+    {
+        3f, 3f, 3f, 3.4f, 3.4f, 3f, 3.4f, 4.2f,
+        3.2f, 3.8f, 4f, 3.2f, 4.4f, 3.4f, 3.8f, 4.4f
+    };
+
+    private static AudioClip IntroSound(int index) => AssetDatabase.LoadAssetAtPath<AudioClip>(Audio + "Intro/" + IntroSounds[index] + ".wav");
+
+    private static void SetIntroAudio(IntroComic intro)
+    {
+        var music = intro.gameObject.AddComponent<AudioSource>();
+        music.clip = AssetDatabase.LoadAssetAtPath<AudioClip>(Audio + "Intro/musica_intro.wav");
+        music.loop = true;
+        music.volume = 0.4f;
+        music.playOnAwake = true;
+        Set(intro, "musicSource", music);
+    }
+
+    [MenuItem("Xoot/8. Poner sonido a la secuencia abierta")]
+    public static void AddIntroSounds()
+    {
+        var intro = Object.FindFirstObjectByType<IntroComic>();
+        if (intro == null) return;
+
+        var so = new SerializedObject(intro);
+        if (so.FindProperty("musicSource").objectReferenceValue == null)
+        {
+            SetIntroAudio(intro);
+            so.Update();
+        }
+
+        var panels = so.FindProperty("panels");
+        for (int i = 0; i < panels.arraySize && i < IntroSounds.Length; i++)
+        {
+            var panel = panels.GetArrayElementAtIndex(i);
+            panel.FindPropertyRelative("sound").objectReferenceValue = IntroSound(i);
+            panel.FindPropertyRelative("soundVolume").floatValue = 1f;
+            panel.FindPropertyRelative("duration").floatValue = IntroDurations[i];
+        }
+
+        so.ApplyModifiedProperties();
+        EditorSceneManager.MarkSceneDirty(intro.gameObject.scene);
+    }
+
+
+
     [MenuItem("Xoot/7. Construir secuencia inicial")]
     public static void BuildIntro()
     {
@@ -520,6 +573,7 @@ public static partial class XootBuilder
         var audio = comic.AddComponent<AudioSource>();
         audio.playOnAwake = false;
         var intro = comic.AddComponent<IntroComic>();
+        SetIntroAudio(intro);
         Set(intro, "panelImage", picture);
         Set(intro, "panelGroup", group);
         Set(intro, "audioSource", audio);
@@ -533,10 +587,11 @@ public static partial class XootBuilder
             var panel = panels.GetArrayElementAtIndex(i);
             panel.FindPropertyRelative("image").objectReferenceValue =
                 AssetDatabase.LoadAssetAtPath<Sprite>("Assets/_Project/Art/Cinematica/escena_" + (i + 1).ToString("00") + ".png");
-            panel.FindPropertyRelative("duration").floatValue = 3.2f;
+            panel.FindPropertyRelative("duration").floatValue = IntroDurations[i];
             panel.FindPropertyRelative("zoomStart").floatValue = 1f;
             panel.FindPropertyRelative("zoomEnd").floatValue = 1.05f;
-            panel.FindPropertyRelative("sound").objectReferenceValue = null;
+            panel.FindPropertyRelative("sound").objectReferenceValue = IntroSound(i);
+            panel.FindPropertyRelative("soundVolume").floatValue = 1f;
         }
 
         so.ApplyModifiedPropertiesWithoutUndo();

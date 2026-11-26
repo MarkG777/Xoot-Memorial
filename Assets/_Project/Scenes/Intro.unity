@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 208656415}
   - component: {fileID: 208656414}
   - component: {fileID: 208656413}
+  - component: {fileID: 208656416}
   m_Layer: 0
   m_Name: Secuencia
   m_TagString: Untagged
@@ -366,87 +367,105 @@ MonoBehaviour:
   audioSource: {fileID: 208656414}
   panels:
   - image: {fileID: 21300000, guid: b39129944b9f6904383e2c51996b0787, type: 3}
-    duration: 3.2
+    duration: 3
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 2bc6a4738eeb2c04ca95f176a02650ff, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: cd1836831bfc84d47a0e9cf7e0bfe7a3, type: 3}
-    duration: 3.2
+    duration: 3
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 43318d2603a95044ebe9b84f9747da54, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 6af9a5f9d7f7ea9419d8f588a3a0d7f2, type: 3}
-    duration: 3.2
+    duration: 3
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 4b3c64cddca722243af31d4fd1f83683, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: b1a79124b3e48934d8e488e084014ec2, type: 3}
-    duration: 3.2
+    duration: 3.4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 10ec55a56a9e0924b9f6503475195964, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 4307d8cab0e689a498551d8add86407e, type: 3}
-    duration: 3.2
+    duration: 3.4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 99f1945fbae3ab646923a2c2e159805e, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: e1931fc30d4afc944b6b9c06b739bd84, type: 3}
-    duration: 3.2
+    duration: 3
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 660cbdf64354fbd4cb5ab68b1dab1f3e, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: bcdf47e4a1f82ff4191a6def8dfe57ff, type: 3}
-    duration: 3.2
+    duration: 3.4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: c595ab3e871db5a4eb4954d36646cbac, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 45752b69e14b3ca4fbfb8de3877e9db5, type: 3}
-    duration: 3.2
+    duration: 4.2
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 986798d463f8030458cdf20fe4d654ea, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 7a73462137b292640938b32ac0d0af36, type: 3}
     duration: 3.2
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 906e19c4ff2255d4d9c0570e96ba4e76, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 467b50bfc4704bd4389b7e3aa5edc178, type: 3}
-    duration: 3.2
+    duration: 3.8
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 965ce586d28d24b4797c3efd04de9129, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 7be37bcaad0f18f40bb6f5b1a715c2a9, type: 3}
-    duration: 3.2
+    duration: 4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 748b39f838c8a7b4181b069b17720eed, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 627b1376d2960a84f93727d758c68c27, type: 3}
     duration: 3.2
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 4e888653d870c83428071d1610e926e3, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: d9dec1e67eb9a8c44b31d547e907572b, type: 3}
-    duration: 3.2
+    duration: 4.4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: d6620ad60725a6944a916d3c5cbdb4ba, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: a8f55ebc39abcf248a5bb4475780eb0e, type: 3}
-    duration: 3.2
+    duration: 3.4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: b7b89504f49468d468ddf697e636c42a, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: 5a5b721822a332b4883869c8a856111a, type: 3}
-    duration: 3.2
+    duration: 3.8
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: 4ac591c94c475824682b9d9da297a35c, type: 3}
+    soundVolume: 1
   - image: {fileID: 21300000, guid: d64005c18ec86a04d9428d0166e667bd, type: 3}
-    duration: 3.2
+    duration: 4.4
     zoomStart: 1
     zoomEnd: 1.05
-    sound: {fileID: 0}
+    sound: {fileID: 8300000, guid: a6a45e5409fec3142b1e45e7a2508b2b, type: 3}
+    soundVolume: 1
   fadeTime: 0.4
   nextScene: Nivel1_Queretaro
+  musicSource: {fileID: 208656416}
+  musicFadeTime: 2
 --- !u!82 &208656414
 AudioSource:
   m_ObjectHideFlags: 0
@@ -559,6 +578,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &208656416
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208656412}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 9b4fb492ef5fb6b43adc6d3a18f9773a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &426291029
 GameObject:
   m_ObjectHideFlags: 0
