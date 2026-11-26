@@ -412,6 +412,8 @@ public static partial class XootBuilder
         so.ApplyModifiedPropertiesWithoutUndo();
 
         AddPostProcessing();
+        AddSnakes();
+        EaseOpenLevel();
         SaveScene(name);
     }
 

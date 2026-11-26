@@ -15,10 +15,10 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 6.5
   jumpSpeed: 13
-  coyoteTime: 0.1
-  jumpBufferTime: 0.12
+  coyoteTime: 0.15
+  jumpBufferTime: 0.16
   jumpCutMultiplier: 0.55
   maxFallSpeed: 18
   maxLives: 3
   respawnDelay: 0.8
-  invulnerableTime: 1.5
+  invulnerableTime: 2.2

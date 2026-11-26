@@ -14,7 +14,7 @@ public class AnimalGuide : MonoBehaviour
         if (shown.Contains(animal) || !levelManager.IsPlaying) return;
 
         shown.Add(animal);
-        string text = "Especie: <i>" + animal.Species + "</i>\n\n" + animal.Facts;
+        string text = "Nombre común: <b>" + animal.CommonName + "</b>\nNombre científico: <i>" + animal.Species + "</i>\n\n" + animal.Facts;
         hud.ShowMemory("¡Cuidado! " + animal.CommonName, text, animal.Picture);
     }
 }

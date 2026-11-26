@@ -213,9 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingPlatform
   visual: {fileID: 3160159904645170332}
-  shakeTime: 0.55
+  shakeTime: 0.9
   fallTime: 0.9
-  respawnTime: 2.5
+  respawnTime: 2
   fallAcceleration: 25
 --- !u!1 &6529823067471301837
 GameObject:

@@ -19,7 +19,9 @@ public class AnimalInfo : MonoBehaviour
     {
         if (speciesLabel != null)
         {
-            speciesLabel.text = animal.Species;
+            // Arriba el nombre más conocido y abajo el nombre científico
+            speciesLabel.fontStyle = FontStyles.Bold;
+            speciesLabel.text = animal.CommonName + "\n<size=80%><i>" + animal.Species + "</i></size>";
             speciesLabel.enabled = false;
         }
     }

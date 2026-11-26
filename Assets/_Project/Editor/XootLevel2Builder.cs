@@ -178,7 +178,7 @@ public static partial class XootBuilder
         {
             Set(animal, "commonName", "Alacrán");
             Set(animal, "species", "Centruroides infamatus");
-            Set(animal, "facts", "Es una de las especies de alacrán que viven en Guanajuato. Sale sobre todo de noche. Su picadura puede ser peligrosa: en la vida real hay que ir al médico de inmediato.\n\nSáltalo, no lo pises.");
+            Set(animal, "facts", "Es una de las especies de alacrán de Guanajuato y sale sobre todo de noche. Su picadura puede ser peligrosa: en la vida real ve al médico. ¡Sáltalo!");
             Set(animal, "picture", S("alacran_0"));
         });
 
@@ -487,6 +487,7 @@ public static partial class XootBuilder
         ApplyTheme("gto_");
         AddPostProcessing();
         AddLloronaCry();
+        EaseOpenLevel();
         SaveScene(name);
     }
 

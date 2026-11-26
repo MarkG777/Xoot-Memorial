@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AnimalData
   commonName: "Alacr\xE1n"
   species: Centruroides infamatus
-  facts: "Es una de las especies de alacr\xE1n que viven en Guanajuato. Sale sobre
-    todo de noche. Su picadura puede ser peligrosa: en la vida real hay que ir al
-    m\xE9dico de inmediato.\n\nS\xE1ltalo, no lo pises."
+  facts: "Es una de las especies de alacr\xE1n de Guanajuato y sale sobre todo de
+    noche. Su picadura puede ser peligrosa: en la vida real ve al m\xE9dico. \xA1S\xE1ltalo!"
   picture: {fileID: 21300000, guid: 6ef0c41055dc19943abbdece9a2ed724, type: 3}

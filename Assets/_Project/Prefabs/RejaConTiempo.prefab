@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimedGate
   openHeight: 2.7
-  openSeconds: 2.2
-  closedSeconds: 1.8
+  openSeconds: 3.2
+  closedSeconds: 1.5
   moveSpeed: 5
   startOffset: 0

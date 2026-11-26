@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8d229ee98dfeb4cb3c6b58654713a8, type: 3}
+  m_Name: Animal_Cascabel
+  m_EditorClassIdentifier: Assembly-CSharp::AnimalData
+  commonName: "V\xEDbora de cascabel"
+  species: Crotalus aquilus
+  facts: "Vive en Quer\xE9taro y el centro de M\xE9xico, y solo existe en este pa\xEDs.
+    Es venenosa: en la vida real no te acerques; si muerde, ve al m\xE9dico. \xA1S\xE1ltala!"
+  picture: {fileID: 21300000, guid: 6b69e22bc19e63c46a85658af17fac52, type: 3}

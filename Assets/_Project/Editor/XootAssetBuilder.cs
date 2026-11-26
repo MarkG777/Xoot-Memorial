@@ -91,7 +91,8 @@ public static partial class XootBuilder
     {
         AssetDatabase.Refresh();
         var bottomPivot = new HashSet<string> { "chest_closed", "chest_open", "door_closed", "door_open", "lantern_off", "lantern_on", "spikes",
-            "gto_chest_closed", "gto_chest_open", "gto_door_closed", "gto_door_open", "alacran_0", "alacran_1" };
+            "gto_chest_closed", "gto_chest_open", "gto_door_closed", "gto_door_open", "alacran_0", "alacran_1",
+            "cascabel_0", "cascabel_1" };
         var tiled = new HashSet<string> { "tile_top", "tile_fill", "platform", "platform_cracked", "spikes", "bg_aqueduct", "white",
             "gto_top", "gto_fill", "gto_platform", "gto_platform_cracked", "bg_guanajuato" };
 
